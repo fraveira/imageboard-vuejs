@@ -1,0 +1,16 @@
+body {
+	background-color: grey;
+}
+
+#main {
+	display: flex;
+}
+
+.imgcontainer {
+	display: grid;
+	width: 200px;
+}
+
+img {
+	width: 200px;
+}
