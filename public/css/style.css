@@ -4,13 +4,27 @@ body {
 
 #main {
 	display: flex;
+	justify-content: space-around;
 }
 
-.imgcontainer {
+div.imgcontainer {
 	display: grid;
-	width: 200px;
+	vertical-align: top;
+	grid-template-columns: 3fr;
+	text-align: center;
+	/* width: 200px; */
+}
+
+.upload {
 }
 
 img {
-	width: 200px;
+	width: 400px;
+	height: 400px;
+	object-fit: cover;
+	background-color: grey;
+}
+
+.ctn {
+	display: block;
 }

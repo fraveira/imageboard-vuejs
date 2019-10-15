@@ -9,13 +9,24 @@
     <header>Here the header of the site</header>
     
     <div id="main">
-                <div class="imgcontainer" v-for="image in images">
-                    <h4>{{image.title}}</h4>
-                <img :src="image.url" alt="">
-                </div>
-    </div>
 
-    
+            <div class="upload">
+        <input v-model="username" name="username">
+        <input v-model="title" name="title">
+        <input v-model="desc" name="description">
+        <input type="file" accept="image/*" @change="fileSelected">
+        <button v-on:click="upload">Upload</button>
+            </div>
+            
+                <div class="imgcontainer" v-for="image in images">
+                        
+                <img :src="image.url" alt="">
+                <figcaption class="ctn">{{image.title}}</figcaption>
+                
+                </div>
+
+
+</div>
     <footer>Here the Footer of the site</footer>
 
 
