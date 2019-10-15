@@ -49,15 +49,18 @@ app.post('/upload', uploader.single('image'), s3.upload, function(req, res) {
 	// 	// din work.
 	// 	res.sendStatus(500);
 	// }
-
 	const { username, title, desc } = req.body;
-	const imageUrl = `${s3Url}/${req.file.filename}`;
+	const imageUrl = `${s3Url}${req.file.filename}`;
 	db
 		.addPictures(username, title, desc, imageUrl)
 		.then(function({ rows }) {
-			//res.json({
-			//username, title, desc, imageUrl, id: rows[0].id
-			//})
+			res.json({
+				username,
+				title,
+				description: desc,
+				url: imageUrl,
+				id: rows[0].id
+			});
 			//send image info to client // PLUS THE ID OF THE IMG.
 		})
 		.catch(function(err) {

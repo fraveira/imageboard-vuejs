@@ -3,28 +3,24 @@ body {
 }
 
 #main {
-	display: flex;
 	justify-content: space-around;
 }
 
-div.imgcontainer {
-	display: grid;
-	vertical-align: top;
-	grid-template-columns: 3fr;
-	text-align: center;
-	/* width: 200px; */
+div.rows {
+	display: flex;
+	flex-wrap: wrap;
 }
 
 .upload {
 }
 
 img {
-	width: 400px;
-	height: 400px;
+	width: 100px;
+	height: 100px;
 	object-fit: cover;
 	background-color: grey;
 }
 
 .ctn {
-	display: block;
+	text-align: left;
 }
