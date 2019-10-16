@@ -6,9 +6,19 @@
 </head>
 <body>
 
-    <header>Here the header of the site</header>
+        <header>
+                <div class="nav">
+                    <img id="logo" src="assets/sprint.svg">
+                    <img id="menu" src="assets/hamburgermenu.svg">
+                </div>
+            </header>
     
     <div id="main">
+
+            <first-component @close="closeMe" v-if="selectedPic" :selected-pic="selectedPic"></first-component>
+            <p @click="imageClicked = images.id" class="imgcards" v-for="image in images" v-if="image.length">{{image.title}}</p>
+
+
 
             <div class="upload">
         <input v-model="username" name="username">
@@ -20,7 +30,7 @@
 
             <div class="rows">
             
-                <div class="imgcontainer" v-for="image in images">
+                <div class="imgcontainer" v-for="image in images" @click="imageClicked(image.id)">
                         
                 <img :src="image.url" alt="">
                 <figcaption class="ctn">{{image.title}}</figcaption>
@@ -29,8 +39,22 @@
 
             </div>
 
-</div>
-    <footer>Here the Footer of the site</footer>
+    </div>
+
+
+    <footer><p class="footer"> Made with <span id="redheart">♡</span> from Berlin by Francisco Riveira</p></footer>
+
+    <script type="text/x-template" id="template">
+    
+     <div class="component">
+        <h1 @click="closeModal">Image details from picture ID {{ selectedPic }} </h1>
+        <p>Title: {{ images.title }}</p>
+        <p>Username: {{ images.username }}</p>
+        <p>Description: {{ images.desc }}</p>
+        <img :src="images.url" alt="">
+        </div>    
+
+    </script>
 
 
     <script src="/js/vue.js"></script>

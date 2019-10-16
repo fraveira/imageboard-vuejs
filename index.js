@@ -38,17 +38,20 @@ app.get('/images', (req, res) => {
 		});
 });
 
+app.get('/images/:imageId', (req, res) => {
+	var id = req.params.imageId;
+
+	db
+		.getPicInfo(id)
+		.then(({ rows }) => {
+			res.json(rows);
+		})
+		.catch((err) => {
+			console.log('Error happened when rendering the PIC with the specific url', err);
+		});
+});
+
 app.post('/upload', uploader.single('image'), s3.upload, function(req, res) {
-	// // If we get here, multer will call next. To verify that that works, multer adds a property called file (req.file)
-	// if (req.file) {
-	// 	const { username, desc, title } = req.body;
-	// 	res.sendStatus(200);
-	// 	// Insert into the database a new row for the image. BUT ONLY AFTER THEY GO TO AMZ.
-	// 	// it worked!
-	// } else {
-	// 	// din work.
-	// 	res.sendStatus(500);
-	// }
 	const { username, title, desc } = req.body;
 	const imageUrl = `${s3Url}${req.file.filename}`;
 	db

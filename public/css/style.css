@@ -1,4 +1,11 @@
+html {
+	position: relative;
+	min-height: 100%;
+}
+
 body {
+	margin-top: 0;
+	margin: 0;
 	background-color: grey;
 }
 
@@ -11,16 +18,79 @@ div.rows {
 	flex-wrap: wrap;
 }
 
-.upload {
-}
-
 img {
-	width: 100px;
-	height: 100px;
+	width: 300px;
+	height: 300px;
 	object-fit: cover;
 	background-color: grey;
 }
 
 .ctn {
 	text-align: left;
+}
+
+.component {
+	background-color: orange;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+/* HEADERS AND NAVSSS */
+
+header {
+	height: 65px;
+	margin-top: 0;
+	background-color: white;
+}
+
+.nav {
+	padding: 15px;
+}
+
+#logo {
+	height: 30px;
+	padding-left: 20px;
+}
+
+#logo:hover {
+	transform: scale(1.1);
+}
+
+#menu {
+	height: 40px;
+	padding-right: 20px;
+	float: right;
+	position: relative;
+	transition: top ease 0.5s;
+	transform: scale(0.8);
+}
+
+#menu:hover {
+	top: -1px;
+}
+
+#redheart {
+	color: red;
+}
+
+footer {
+	background: #666666;
+	height: 30px;
+	display: block;
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	overflow: hidden;
+}
+
+.footer {
+	font-family: "Roboto Mono", monospace;
+	padding: 7px 40px;
+	color: white;
+	font-size: 14px;
+	margin: auto;
 }
