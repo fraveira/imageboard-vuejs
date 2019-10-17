@@ -94,3 +94,8 @@ footer {
 	font-size: 14px;
 	margin: auto;
 }
+
+.closingx {
+	float: right;
+	font-size: 3em;
+}

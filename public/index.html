@@ -12,7 +12,7 @@
                     <img id="menu" src="assets/hamburgermenu.svg">
                 </div>
             </header>
-    
+
     <div id="main">
 
             <first-component @close="closeMe" v-if="selectedPic" :selected-pic="selectedPic"></first-component>
@@ -29,12 +29,12 @@
             </div>
 
             <div class="rows">
-            
+
                 <div class="imgcontainer" v-for="image in images" @click="imageClicked(image.id)">
-                        
+
                 <img :src="image.url" alt="">
                 <figcaption class="ctn">{{image.title}}</figcaption>
-                
+
                 </div>
 
             </div>
@@ -45,14 +45,32 @@
     <footer><p class="footer"> Made with <span id="redheart">♡</span> from Berlin by Francisco Riveira</p></footer>
 
     <script type="text/x-template" id="template">
-    
+
      <div class="component">
-        <h1 @click="closeModal">Image details from picture ID {{ selectedPic }} </h1>
+
+        <h1 @click="closeModal">Image details from picture ID {{ selectedPic }} </h1> <span class="closingx" @click="closeModal">✖</span>
+
+        <div class="modalcontent">
         <p>Title: {{ images.title }}</p>
         <p>Username: {{ images.username }}</p>
         <p>Description: {{ images.desc }}</p>
         <img :src="images.url" alt="">
-        </div>    
+        </div>
+
+        <div class="modalcomments">
+
+                <input type="text" placeholder="Write your comment" name="usercmt" v-model="usercmt">
+                <input type="text" placeholder="Your name" name="comment" v-model="comment">
+                <button @click="submitComment">Save your comment</button>
+
+                <p v-for="comment in comments">{{comment.usercmt}}: {{comment.comment}}</p>
+
+
+        </div>
+
+        <div></div>
+
+        </div>
 
     </script>
 
