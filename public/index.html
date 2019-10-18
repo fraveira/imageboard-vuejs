@@ -29,13 +29,14 @@
             </div>
 
             <div class="rows">
-
-                <div class="imgcontainer" v-for="image in images" @click="imageClicked(image.id)">
-
-                <img :src="image.url" alt="">
-                <figcaption class="ctn">{{image.title}}</figcaption>
-
-                </div>
+                    <div class="imgcontainer" v-for="image in images">
+                    <!-- <div class="imgcontainer" v-for="image in images" @click="imageClicked(image.id)"> -->
+                        <a :href="'#' + image.id">
+                    <img :src="image.url" alt="">
+                    <figcaption class="ctn">{{image.title}}</figcaption>
+                        </a>
+                    </div>
+                    <button @click="moreImages">More</button>
 
             </div>
 
@@ -52,7 +53,7 @@
 
         <div class="modalcontent">
         <p>Title: {{ images.title }}</p>
-        <p>Username: {{ images.username }}</p> 
+        <p>Username: {{ images.username }}</p>
         <p>Description: {{ images.desc }}</p>
         <img :src="images.url" alt="">
         </div>
