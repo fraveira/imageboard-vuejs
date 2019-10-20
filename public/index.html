@@ -56,7 +56,7 @@
                               </div>
                             </a>
                             </div>
-                            <button v-if="images.length <= 16" @click="moreImages" type="button" class="btn btn-primary btn-lg btn-block">More Images</button>
+                            <button v-if="images.length <= 21" @click="moreImages" type="button" class="btn btn-primary btn-lg btn-block">More Images</button>
                           </div>
 
                           
@@ -69,32 +69,33 @@
 
     <script type="text/x-template" id="template">
 
-     <div class="component">
+     <div class="component shadow-lg p-3 mb-5 bg-white rounded">
 
-        <h1 @click="closeModal">Image details from picture ID {{ selectedPic }} </h1> <span class="closingx" @click="closeModal">✖</span>
+        <h1 @click="closeModal">{{ images.title }} </h1> <span class="closingx" @click="closeModal">✖</span>
 
         <div class="modalcontent">
-        <p>Title: {{ images.title }}</p>
-        <p>Username: {{ images.username }}</p>
-        <p>Description: {{ images.description }}</p>
+        <p><strong>Uploaded by:</strong> {{ images.username }}</p>
+        <p><strong>Description:</strong> {{ images.description }}</p>
         <img :src="images.url" alt="">
         </div>
 
-        <div class="modalcomments">
-
-                <input type="text" placeholder="Write your comment" name="usercmt" v-model="usercmt">
-                <input type="text" placeholder="Your name" name="comment" v-model="comment">
-                <button @click="submitComment">Save your comment</button>
-
-                <p v-for="comment in comments">{{comment.usercmt}}: {{comment.comment}}</p>
-
-
-        </div>
-
-        <div></div>
-
-        </div>
-
+        <div class="form-inline modalcomments">
+                <label class="sr-only" for="inlineFormInputName2">Name</label>
+                <input type="text" placeholder="Write your name" name="usercmt" v-model="usercmt" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2">
+              
+                <label class="sr-only" for="inlineFormInputGroupUsername2">Write your comment</label>
+                
+                  <input  type="text" placeholder="Your comment" name="comment" v-model="comment" class="form-control" id="inlineFormInputGroupUsername2">
+                
+                <button @click="submitComment" type="submit" class="btn btn-primary mb-2">Submit</button>
+            
+            </div>
+            <div class="containingcmts">
+                <h3>Other users said:</h3>
+                <p v-for="comment in comments"><strong>{{comment.usercmt}} said:</strong> {{comment.comment}} <span id="klein">on {{comment.created_at}}</span></p>
+            </div>
+        
+    </div>
     </script>
 
 

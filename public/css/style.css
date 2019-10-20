@@ -11,6 +11,7 @@ body {
 
 #main {
 	margin-top: 5px;
+	margin-left: 20px;
 	justify-content: space-around;
 }
 
@@ -36,14 +37,34 @@ div.row {
 	text-align: left;
 }
 
-.component {
+/* .component {
 	background-color: orange;
 	position: fixed;
-	top: 0;
+	top: 50;
 	left: 0;
 	right: 0;
-	bottom: 0;
+	bottom: 50;
 	z-index: 1444;
+} */
+
+.component {
+	position: sticky;
+	width: 99%;
+	top: 0px;
+	left: 50%;
+	border-radius: 12px;
+	background-color: white;
+	font-size: 15px;
+	z-index: 1444;
+	display: block;
+	border: 1px solid #ccc;
+	opacity: 1;
+	margin: auto;
+}
+
+.card-title {
+	align-content: center;
+	text-align: center;
 }
 
 /* HEADERS AND NAVSSS */
@@ -105,9 +126,47 @@ footer {
 	font-size: 14px;
 	margin-top: 20px;
 	margin: auto;
+	padding-left: 120px;
 }
 
 .closingx {
 	float: right;
 	font-size: 3em;
+}
+
+.component {
+	align-content: center;
+	text-align: center;
+}
+
+.modalcontent img {
+	max-width: 500px;
+	max-height: 300px;
+}
+
+.form-inline {
+	align-content: center;
+	text-align: center;
+}
+
+.modalcomments {
+	display: inline-block;
+	margin: 0 auto;
+	margin-top: 10px;
+}
+
+.form-control {
+	margin-bottom: 8px;
+}
+
+.containingcmts {
+	border: 1px solid black;
+	width: 50%;
+	margin: 0 auto;
+	margin-top: 5px;
+	overflow-y: scroll;
+}
+
+#klein {
+	font-size: 0.5rem;
 }
