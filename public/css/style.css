@@ -14,16 +14,22 @@ body {
 	justify-content: space-around;
 }
 
-div.rows {
+div.row {
 	display: flex;
 	flex-wrap: wrap;
+	width: 100%;
 }
 
-.imgcontainer img {
-	width: 300px;
-	height: 300px;
+.card img {
+	width: 250px;
+	height: 250px;
 	object-fit: cover;
+	margin: auto;
 	background-color: grey;
+}
+
+.card {
+	margin-bottom: 20px;
 }
 
 .ctn {
@@ -78,6 +84,10 @@ header {
 	color: red;
 }
 
+.btn-block {
+	margin-bottom: 50px;
+}
+
 footer {
 	background: #666666;
 	height: 30px;
@@ -86,7 +96,6 @@ footer {
 	left: 0;
 	bottom: 0;
 	width: 100%;
-	overflow: hidden;
 }
 
 .footer {
@@ -94,6 +103,7 @@ footer {
 	padding: 7px 40px;
 	color: white;
 	font-size: 14px;
+	margin-top: 20px;
 	margin: auto;
 }
 

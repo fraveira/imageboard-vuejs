@@ -45,27 +45,22 @@
                       </div>
 
                       <div class="row">
-                            <div class="col-sm-3">
-                              <div class="card">
-                                    <img class="card-img-top" src="/assets/sprint.svg" alt="Card image cap">
+                            <div class="col-sm-3" v-for="image in images" >
+                                    <a :href="'#' + image.id">
+                              <div class="card shadow-lg p-3 mb-5 bg-white rounded">
+                                    <img class="card-img-top" :src="image.url" alt="Card image cap">
                                 <div class="card-body">
-                                  <h5 class="card-title">Special title treatment</h5>
-                                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                  <h5 class="card-title">{{image.title}}</h5>
+                        
                                 </div>
                               </div>
+                            </a>
                             </div>
+                            <button v-if="images.length <= 16" @click="moreImages" type="button" class="btn btn-primary btn-lg btn-block">More Images</button>
                           </div>
 
-            <div class="rows">
-                    <div class="imgcontainer" v-for="image in images">
-                        <a :href="'#' + image.id">
-                    <img :src="image.url" alt="">
-                    <figcaption class="ctn">{{image.title}}</figcaption>
-                        </a>
-                    </div>
-                    <button @click="moreImages">More</button>
-
-            </div>
+                          
+        
 
     </div>
 
