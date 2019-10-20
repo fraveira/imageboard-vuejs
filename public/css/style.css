@@ -6,10 +6,11 @@ html {
 body {
 	margin-top: 0;
 	margin: 0;
-	background-color: grey;
+	background-color: white;
 }
 
 #main {
+	margin-top: 5px;
 	justify-content: space-around;
 }
 
@@ -18,7 +19,7 @@ div.rows {
 	flex-wrap: wrap;
 }
 
-img {
+.imgcontainer img {
 	width: 300px;
 	height: 300px;
 	object-fit: cover;
@@ -36,19 +37,20 @@ img {
 	left: 0;
 	right: 0;
 	bottom: 0;
+	z-index: 1444;
 }
 
 /* HEADERS AND NAVSSS */
 
 header {
-	height: 65px;
+	height: 40px;
 	margin-top: 0;
 	background-color: white;
 }
 
-.nav {
+/* .nav {
 	padding: 15px;
-}
+} */
 
 #logo {
 	height: 30px;
