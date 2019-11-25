@@ -37,16 +37,6 @@ div.row {
 	text-align: left;
 }
 
-/* .component {
-	background-color: orange;
-	position: fixed;
-	top: 50;
-	left: 0;
-	right: 0;
-	bottom: 50;
-	z-index: 1444;
-} */
-
 .component {
 	position: sticky;
 	width: 99%;
@@ -67,17 +57,13 @@ div.row {
 	text-align: center;
 }
 
-/* HEADERS AND NAVSSS */
+/* HEADERS AND NAVS */
 
 header {
 	height: 40px;
 	margin-top: 0;
 	background-color: white;
 }
-
-/* .nav {
-	padding: 15px;
-} */
 
 #logo {
 	height: 30px;
