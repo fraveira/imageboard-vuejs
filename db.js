@@ -2,7 +2,7 @@ const spicedPg = require('spiced-pg');
 const db = spicedPg(process.env.DATABASE_URL || `postgres:postgres:postgres@localhost:5432/imageboard`);
 
 module.exports.getPictures = () => {
-	return db.query(`SELECT * FROM images ORDER BY created_at DESC LIMIT 12;`);
+	return db.query(`SELECT * FROM images ORDER BY created_at DESC LIMIT 8;`);
 };
 
 module.exports.addPictures = (username, title, desc, imageUrl) => {
@@ -32,7 +32,13 @@ module.exports.showAllComments = (imageId) => {
 
 module.exports.getMoreImages = (lastId) => {
 	return db.query(
-		`SELECT * FROM images
+		`
+        SELECT *, (
+        SELECT id FROM images
+        ORDER BY id ASC
+        LIMIT 1
+        )
+        AS lowest_id FROM images
         WHERE id < $1
         ORDER BY id DESC
         LIMIT 4`,

@@ -20,7 +20,10 @@
 			axios
 				.get(`/images/${this.selectedPic}`)
 				.then(function(resp) {
-					myVue.images = resp.data[0];
+					myVue.images = resp.data;
+					if (myVue.images.length === 8) {
+						myVue.showButton = false;
+					}
 				})
 				.catch(function(e) {
 					console.log(e);
@@ -77,7 +80,8 @@
 			desc: '',
 			title: '',
 			file: null,
-			selectedPic: location.hash.slice(1)
+			selectedPic: location.hash.slice(1),
+			showButton: true
 		},
 		created: function() {
 			console.log('created');
@@ -130,7 +134,11 @@
 				var myVue = this;
 				let lastId = this.images.slice(-1)[0].id;
 				axios.get(`/moreimages/${lastId}`).then(function(res) {
+					console.log('What is res.data?', res.data);
 					for (let i = 0; i < res.data.length; i++) {
+						if (res.data[i].id === res.data[i].lowest_id) {
+							myVue.showButton = false;
+						}
 						myVue.images.push(res.data[i]);
 					}
 				});

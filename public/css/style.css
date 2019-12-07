@@ -22,8 +22,8 @@ div.row {
 }
 
 .card img {
-	width: 250px;
-	height: 250px;
+	max-width: 250px;
+	max-height: 250px;
 	object-fit: cover;
 	margin: auto;
 	background-color: grey;
