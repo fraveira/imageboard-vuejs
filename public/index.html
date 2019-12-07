@@ -20,31 +20,36 @@
             <p @click="imageClicked = images.id" class="imgcards" v-for="image in images" v-if="image.length">{{image.title}}</p>
 
 
-            <div class="form-inline">
-                    <label class="sr-only" for="inlineFormInputName2">Name</label>
-                    <input v-model="title" name="title" type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Picture Title">
-                     <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
-                    <div class="input-group mb-2 mr-sm-2">
-                      <div class="input-group-prepend">
-                        <div class="input-group-text">@</div>
-                      </div>
-                      <input v-model="username" name="username" type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
-                      
+                    <div class="form-inline">
+                            <div class="input-group mb-2 mr-sm-2"> 
+                            <label class="sr-only" for="inlineFormInputName2">Name</label>
+                            <input v-model="title" name="title" type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Picture Title">
+                            
+                            </div>
+                            
+                            <div class="input-group mb-2 mr-sm-2">
+                                    <label class="sr-only" for="inlineFormInputGroupUsername2">Username</label>
+                            
+                            <input v-model="username" name="username" type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputGroupUsername2" placeholder="Username">
+                            </div>
+                            
+                            <div class="input-group mb-2 mr-sm-2">
+                            <input v-model="desc" name="description" type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Describe your Picture">
+                            </div>
+
+                            <div class="input-group mb-2 mr-sm-2">
+                                <div class="custom-file">
+                                <input type="file" accept="image/*" @change="fileSelected" class="custom-file-input" id="inputGroupFile02">
+                                <label class="custom-file-label" for="inputGroupFile02">Click  here to choose file</label>
+                                </div>
+                                <div class="input-group-append">
+                                <span v-on:click="upload" class="btn btn-primary mb-2" id="">Upload</span>
+                                </div>
+                            </div>
+                        
                     </div>
-                    <input v-model="desc" name="description" type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Describe your Picture">
-                </div>
 
-                  <div class="input-group mb-3">
-                        <div class="custom-file">
-                          <input type="file" accept="image/*" @change="fileSelected" class="custom-file-input" id="inputGroupFile02">
-                          <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
-                        </div>
-                        <div class="input-group-append">
-                          <span v-on:click="upload" class="btn btn-primary mb-2" id="">Upload</span>
-                        </div>
-                      </div>
-
-                      <div class="row">
+                    <div class="row">
                             <div class="col-sm-3" v-for="image in images" >
                                     <a :href="'#' + image.id">
                               <div class="card shadow-lg p-3 mb-5 bg-white rounded">
@@ -57,7 +62,7 @@
                             </a>
                             </div>
                             <button v-if="images.length >= 8 && showButton" @click="moreImages" type="button" class="btn btn-primary btn-lg btn-block">More Images</button>
-                          </div>
+                    </div>
 
                           
         
